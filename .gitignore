@@ -1,0 +1,29 @@
+# Dependencies
+web/node_modules/
+
+# Next.js build output
+web/.next/
+web/out/
+
+# Environment variables — contains secrets, never commit
+web/.env.local
+web/.env*.local
+
+# User data
+data/
+
+# Playwright session snapshots (runtime artifacts)
+.playwright-mcp/
+
+# Claude local settings (machine-specific)
+.claude/settings.local.json
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Word docs (binary)
+reports/*.docx

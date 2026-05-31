@@ -1,0 +1,232 @@
+- generic [ref=e2]:
+  - link "목록" [ref=e5] [cursor=pointer]:
+    - /url: /
+    - img [ref=e6]
+    - text: 목록
+  - generic [ref=e8]:
+    - generic [ref=e9]:
+      - generic [ref=e10]: SCZ
+      - generic [ref=e11]: 2026-05-27
+    - heading "Santacruz Silver Mining Ltd" [level=1] [ref=e12]
+    - generic [ref=e15]: 🟠 분할 매수 (Accumulate)
+    - generic [ref=e17]:
+      - generic [ref=e18]:
+        - paragraph [ref=e19]: 재무 등급
+        - paragraph [ref=e20]: B
+      - generic [ref=e21]:
+        - paragraph [ref=e22]: 뉴스 심리
+        - paragraph [ref=e23]: 긍정 📈
+      - generic [ref=e24]:
+        - paragraph [ref=e25]: 업종 전망
+        - paragraph [ref=e26]: 중립 ⚖️
+  - generic [ref=e29]:
+    - 'heading "🎯 최종 투자 판단: Santacruz Silver Mining Ltd (TSX-V: SCZ / OTC: SCZMF)" [level=1] [ref=e30]'
+    - paragraph [ref=e31]:
+      - strong [ref=e32]: 분석일
+      - text: ": 2026-05-27"
+      - strong [ref=e33]: "판정: 🟠 분할 매수 (Accumulate)"
+    - separator [ref=e34]
+    - heading "📊 분석 종합" [level=2] [ref=e35]
+    - heading "1. 재무 분석가 의견 — 등급 B (양호)" [level=3] [ref=e36]
+    - table [ref=e37]:
+      - rowgroup [ref=e38]:
+        - row "지표 수치 해석" [ref=e39]:
+          - columnheader "지표" [ref=e40]
+          - columnheader "수치" [ref=e41]
+          - columnheader "해석" [ref=e42]
+      - rowgroup [ref=e43]:
+        - row "매출 추이 $251M(2023) → $283M(2024) → $326M(2025) 2년 연속 두 자릿수 성장, 고성장 국면" [ref=e44]:
+          - cell "매출 추이" [ref=e45]
+          - cell "$251M(2023) → $283M(2024) → $326M(2025)" [ref=e46]
+          - cell "2년 연속 두 자릿수 성장, 고성장 국면" [ref=e47]
+        - row "영업이익률 26.1% (2024년 11.6%에서 급등) 우수 — 원가 절감 + 은 가격 강세" [ref=e48]:
+          - cell "영업이익률" [ref=e49]
+          - cell "26.1% (2024년 11.6%에서 급등)" [ref=e50]
+          - cell "우수 — 원가 절감 + 은 가격 강세" [ref=e51]
+        - row "순이익률 12.9% 양호 (전년 일회성 이익 제외 기준)" [ref=e52]:
+          - cell "순이익률" [ref=e53]
+          - cell "12.9%" [ref=e54]
+          - cell "양호 (전년 일회성 이익 제외 기준)" [ref=e55]
+        - row "PER 약 12.2배 업종 평균(12~20배) 하단, 저평가 가능" [ref=e56]:
+          - cell "PER" [ref=e57]
+          - cell "약 12.2배" [ref=e58]
+          - cell "업종 평균(12~20배) 하단, 저평가 가능" [ref=e59]
+        - row "PBR 약 4.7배 주가 +1103% 급등 영향, 고평가 주의" [ref=e60]:
+          - cell "PBR" [ref=e61]
+          - cell "약 4.7배" [ref=e62]
+          - cell "주가 +1103% 급등 영향, 고평가 주의" [ref=e63]
+        - row "ROE 약 23.6% 우수" [ref=e64]:
+          - cell "ROE" [ref=e65]
+          - cell "약 23.6%" [ref=e66]
+          - cell "우수" [ref=e67]
+        - row "부채비율 148.9% 주의 — 단기차입금 1년새 3배 급증" [ref=e68]:
+          - cell "부채비율" [ref=e69]
+          - cell "148.9%" [ref=e70]
+          - cell "주의 — 단기차입금 1년새 3배 급증" [ref=e71]
+        - row "유동비율 140.5% 보통" [ref=e72]:
+          - cell "유동비율" [ref=e73]
+          - cell "140.5%" [ref=e74]
+          - cell "보통" [ref=e75]
+    - paragraph [ref=e76]:
+      - strong [ref=e77]: 재무 리스크
+      - text: ": 단기차입금 급증(US$16.4M→US$50.6M), 순이익 변동성(일회성 손익 의존), 환율 리스크, 금속가격 사이클, PBR 4.7배 과열"
+    - separator [ref=e78]
+    - heading "2. 뉴스 감성 분석가 의견 — 긍정 📈" [level=3] [ref=e79]
+    - paragraph [ref=e80]:
+      - strong [ref=e81]: "호재 6건 / 악재 3건 / 중립 1건 (분석기간: 2026-04-27 ~ 2026-05-27)"
+    - table [ref=e82]:
+      - rowgroup [ref=e83]:
+        - row "# 날짜 내용 분류" [ref=e84]:
+          - columnheader "#" [ref=e85]
+          - columnheader "날짜" [ref=e86]
+          - columnheader "내용" [ref=e87]
+          - columnheader "분류" [ref=e88]
+      - rowgroup [ref=e89]:
+        - row "1 05/15 Q1 2026 매출 $127.5M (+81% YoY), 순이익 $28.5M (+201%) 🟢 호재" [ref=e90]:
+          - cell "1" [ref=e91]
+          - cell "05/15" [ref=e92]
+          - cell "Q1 2026 매출 $127.5M (+81% YoY), 순이익 $28.5M (+201%)" [ref=e93]
+          - cell "🟢 호재" [ref=e94]
+        - row "2 05/15 은 실현가 $63.30/oz (+128%), 마진 $31.70/oz (+221%) 🟢 호재" [ref=e95]:
+          - cell "2" [ref=e96]
+          - cell "05/15" [ref=e97]
+          - cell "은 실현가 $63.30/oz (+128%), 마진 $31.70/oz (+221%)" [ref=e98]
+          - cell "🟢 호재" [ref=e99]
+        - row "3 05/15 현금 $64.9M (전년比 2배), 운전자본 $75.9M (+47%) 🟢 호재" [ref=e100]:
+          - cell "3" [ref=e101]
+          - cell "05/15" [ref=e102]
+          - cell "현금 $64.9M (전년比 2배), 운전자본 $75.9M (+47%)" [ref=e103]
+          - cell "🟢 호재" [ref=e104]
+        - row "4 05/15 Q1 은 생산량 1,341,499oz (-16% YoY) 🔴 악재" [ref=e105]:
+          - cell "4" [ref=e106]
+          - cell "05/15" [ref=e107]
+          - cell "Q1 은 생산량 1,341,499oz (-16% YoY)" [ref=e108]
+          - cell "🔴 악재" [ref=e109]
+        - row "5 05/15 AISC $31.60/oz (+76% 급등) 🔴 악재" [ref=e110]:
+          - cell "5" [ref=e111]
+          - cell "05/15" [ref=e112]
+          - cell "AISC $31.60/oz (+76% 급등)" [ref=e113]
+          - cell "🔴 악재" [ref=e114]
+        - row "6 05월 Bolivar 광산 은 생산 QoQ +28% (홍수 회복) 🟢 호재" [ref=e115]:
+          - cell "6" [ref=e116]
+          - cell "05월" [ref=e117]
+          - cell "Bolivar 광산 은 생산 QoQ +28% (홍수 회복)" [ref=e118]
+          - cell "🟢 호재" [ref=e119]
+        - row "7 05월 TSX 메인보드 승격 6월 내 완료 예상 🟢 호재" [ref=e120]:
+          - cell "7" [ref=e121]
+          - cell "05월" [ref=e122]
+          - cell "TSX 메인보드 승격 6월 내 완료 예상" [ref=e123]
+          - cell "🟢 호재" [ref=e124]
+        - row "8 05월 EV/oz·P/NAV 40~75% 디스카운트 지속 (볼리비아 관할권) 🔴 악재" [ref=e125]:
+          - cell "8" [ref=e126]
+          - cell "05월" [ref=e127]
+          - cell "EV/oz·P/NAV 40~75% 디스카운트 지속 (볼리비아 관할권)" [ref=e128]
+          - cell "🔴 악재" [ref=e129]
+        - row "9 05월 2025 지속가능성 보고서 발표 / 90일 -37.8% 주가 조정 ⚪ 중립" [ref=e130]:
+          - cell "9" [ref=e131]
+          - cell "05월" [ref=e132]
+          - cell "2025 지속가능성 보고서 발표 / 90일 -37.8% 주가 조정" [ref=e133]
+          - cell "⚪ 중립" [ref=e134]
+        - row "10 04/08 San Lucas 채권 40% 초과청약 성공 🟢 호재" [ref=e135]:
+          - cell "10" [ref=e136]
+          - cell "04/08" [ref=e137]
+          - cell "San Lucas 채권 40% 초과청약 성공" [ref=e138]
+          - cell "🟢 호재" [ref=e139]
+    - paragraph [ref=e140]:
+      - strong [ref=e141]: 판정 근거
+      - text: ": Q1 실적 대폭 개선 + TSX 승격 촉매 + 자금조달 성공이 긍정 우위 형성. 단, 생산량 -16%·AISC +76%는 현 호실적이 가격 레버리지에 의존한다는 신호."
+    - separator [ref=e142]
+    - heading "3. 업종 리서처 의견 — 중립 ⚖️" [level=3] [ref=e143]
+    - paragraph [ref=e144]:
+      - strong [ref=e145]: 글로벌 은 시장
+    - list [ref=e146]:
+      - listitem [ref=e147]: "6년 연속 공급 부족 지속, 가격 전망: UBS $80/oz, JPM $81/oz, Commerzbank $90/oz"
+      - listitem [ref=e148]: AI·전동화 산업 수요 견조, 태양광 은 사용량은 7% 감소 추세
+      - listitem [ref=e149]: "공급: 광산 생산 ~1% 증가에 그쳐 구조적 타이트"
+    - paragraph [ref=e150]:
+      - strong [ref=e151]: 경쟁사 실적
+    - list [ref=e152]:
+      - listitem [ref=e153]: "Pan American Silver (PAAS): Q1 2026 매출 $682M, 순이익 $456M — 업종 최강"
+      - listitem [ref=e154]: "First Majestic Silver (AG): Q1 2026 매출 +95% YoY $476.7M — 강세"
+    - paragraph [ref=e155]:
+      - strong [ref=e156]: 규제 리스크
+    - list [ref=e157]:
+      - listitem [ref=e158]: "멕시코: 노천채굴 금지 법안 추진"
+      - listitem [ref=e159]: "볼리비아: 불법 채굴자 침입·자본통제·정치 불안정 (5년 연속 하위 분위)"
+      - listitem [ref=e160]: "긍정: Glencore 1.5% NSR 로열티 소멸 (2024년)"
+    - separator [ref=e161]
+    - heading "⚡ 투자 근거 (핵심 3가지)" [level=2] [ref=e162]
+    - list [ref=e163]:
+      - listitem [ref=e164]:
+        - strong [ref=e165]: 가격 레버리지 극대화 구간
+        - text: ": 은 가격 강세($63/oz 실현)가 생산 감소(-16%)에도 불구하고 순이익 +201%를 만들어냈다. 은 $80~90/oz 전망이 유지되는 한 수익성 폭발적 개선 지속."
+      - listitem [ref=e166]:
+        - strong [ref=e167]: TSX 메인보드 승격 촉매
+        - text: ": 6월 내 완료 예상. 기관 투자자 접근성 확대 → 볼리비아 관할권 디스카운트(40~75%) 점진 해소 가능성."
+      - listitem [ref=e168]:
+        - strong [ref=e169]: PER 12.2배 + 현금 2배 확대
+        - text: ": 절대 밸류에이션 부담은 낮고, 현금 $64.9M으로 단기차입금 상환 여력 충분."
+    - separator [ref=e170]
+    - heading "⚠️ 주요 리스크 요인" [level=2] [ref=e171]
+    - list [ref=e172]:
+      - listitem [ref=e173]:
+        - strong [ref=e174]: 볼리비아 관할권 리스크
+        - text: ": 불법 채굴 침입, 자본통제, 정치 불안 → 포지션 크기 제한 근거"
+      - listitem [ref=e175]:
+        - strong [ref=e176]: 100% 가격 레버리지 구조
+        - text: ": 은 가격 하락 시 실적 급반전 가능 (생산량 감소로 물량 쿠션 없음)"
+      - listitem [ref=e177]:
+        - strong [ref=e178]: 단기차입금 3배 급증
+        - text: ": US$50.6M 상환 압박, 금리 환경 악화 시 재무 부담"
+      - listitem [ref=e179]:
+        - strong [ref=e180]: PBR 4.7배 과열
+        - text: ": 2025년 +1103% 급등 후 90일 -37.8% 조정 진행 중"
+    - separator [ref=e181]
+    - heading "💰 투자 실행 계획" [level=2] [ref=e182]
+    - table [ref=e183]:
+      - rowgroup [ref=e184]:
+        - row "항목 내용" [ref=e185]:
+          - columnheader "항목" [ref=e186]
+          - columnheader "내용" [ref=e187]
+      - rowgroup [ref=e188]:
+        - row "목표 수익률 단기 +25% / 중기 +50% / 장기 +100%" [ref=e189]:
+          - cell "목표 수익률" [ref=e190]:
+            - strong [ref=e191]: 목표 수익률
+          - cell "단기 +25% / 중기 +50% / 장기 +100%" [ref=e192]
+        - row "손절 라인 평균 매입단가 대비 -18% 이탈 시 전량 청산" [ref=e193]:
+          - cell "손절 라인" [ref=e194]:
+            - strong [ref=e195]: 손절 라인
+          - cell "평균 매입단가 대비 -18% 이탈 시 전량 청산" [ref=e196]
+        - row "진입 타이밍 1차 즉시 30% / 2차 TSX 메인보드 승격 확정 시 40% / 3차 눌림목 추가 30%" [ref=e197]:
+          - cell "진입 타이밍" [ref=e198]:
+            - strong [ref=e199]: 진입 타이밍
+          - cell "1차 즉시 30% / 2차 TSX 메인보드 승격 확정 시 40% / 3차 눌림목 추가 30%" [ref=e200]
+        - row "보유 기간 중기 6~12개월 (TSX 승격 + 은 가격 사이클 확인)" [ref=e201]:
+          - cell "보유 기간" [ref=e202]:
+            - strong [ref=e203]: 보유 기간
+          - cell "중기 6~12개월 (TSX 승격 + 은 가격 사이클 확인)" [ref=e204]
+        - row "포지션 크기 포트폴리오 대비 8~12% (볼리비아 리스크 반영 상한)" [ref=e205]:
+          - cell "포지션 크기" [ref=e206]:
+            - strong [ref=e207]: 포지션 크기
+          - cell "포트폴리오 대비 8~12% (볼리비아 리스크 반영 상한)" [ref=e208]
+    - separator [ref=e209]
+    - heading "🔮 시나리오 분석" [level=2] [ref=e210]
+    - list [ref=e211]:
+      - listitem [ref=e212]:
+        - strong [ref=e213]: 강세 시나리오
+        - text: "(확률 35%): 은 $90+/oz 유지 + TSX 승격 완료 + 볼리비아 디스카운트 해소 → 목표 +80~100%"
+      - listitem [ref=e214]:
+        - strong [ref=e215]: 기본 시나리오
+        - text: "(확률 45%): 은 $75"
+        - deletion [ref=e216]: 85/oz + TSX 승격 + 생산량 점진 회복 → 목표 +30
+        - text: 50%
+      - listitem [ref=e217]:
+        - strong [ref=e218]: 약세 시나리오
+        - text: "(확률 20%): 은 $60/oz 이하 하락 OR 볼리비아 사태 악화 → -25~35% 손절"
+    - separator [ref=e219]
+    - paragraph [ref=e220]:
+      - strong [ref=e221]: ⚡ 전략가 총평
+      - text: ": 생산량이 줄었는데 이익이 201% 폭증한 기업 — 이것은 순수한 가격 레버리지 베팅이다. 은 시장 6년 연속 공급부족·기관 강세 전망·TSX 승격이라는 3중 촉매가 살아있는 지금, 볼리비아 리스크를 이유로 완전히 외면하는 것은 기회비용의 낭비다. 단, 전체 베팅은 자살 행위 — 3회 분할로 리스크를 나누고, -18% 손절선을 신앙처럼 지켜라."
+    - separator [ref=e222]
+    - paragraph [ref=e223]:
+      - emphasis [ref=e224]: 본 분석은 투자 참고용이며, 최종 투자 결정과 책임은 투자자 본인에게 있습니다.

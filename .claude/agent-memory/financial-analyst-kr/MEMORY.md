@@ -1,0 +1,2 @@
+- [은·광산주 분석 & Santacruz Silver(SCZ)](sector_silver_mining.md) — 광산주 순이익 왜곡 주의, SCZ 3년 재무 트렌드/BS 수치
+- [삼성전자(005930)](stock_samsung_electronics.md) — 2025 매출 333.6조 역대최대, 영업익 43.6조, 재무등급 A, 메모리 슈퍼사이클

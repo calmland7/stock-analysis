@@ -1,0 +1,30 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(Get-ChildItem *)",
+      "PowerShell(claude mcp *)",
+      "PowerShell(New-Item *)",
+      "PowerShell(pandoc *)",
+      "PowerShell(pip install *)",
+      "PowerShell(npm *)",
+      "Bash(npx create-next-app@latest *)",
+      "Bash(npm install *)",
+      "PowerShell(head *)",
+      "PowerShell(npm run *)",
+      "mcp__playwright__browser_navigate",
+      "mcp__playwright__browser_resize",
+      "PowerShell(Get-Command *)",
+      "PowerShell(& \"C:\\\\Users\\\\20110079\\\\.local\\\\bin\\\\claude.exe\" --help 2>&1 | Select-Object -First 40)",
+      "mcp__playwright__browser_type",
+      "mcp__playwright__browser_click",
+      "PowerShell($p = Start-Process -FilePath \"C:\\\\Users\\\\20110079\\\\.local\\\\bin\\\\claude.exe\" -ArgumentList \"--print\",\"--output-format\",\"stream-json\",\"--dangerously-skip-permissions\",\"테스트\" -WorkingDirectory \"C:\\\\Users\\\\20110079\\\\stock\" -Wait -NoNewWindow -PassThru -RedirectStandardOutput \"C:\\\\Users\\\\20110079\\\\stock\\\\web\\\\test-out.txt\" -RedirectStandardError \"C:\\\\Users\\\\20110079\\\\stock\\\\web\\\\test-err.txt\"; Write-Host \"Exit: $\\($p.ExitCode\\)\"; Get-Content \"C:\\\\Users\\\\20110079\\\\stock\\\\web\\\\test-err.txt\" | Select-Object -First 20; Get-Content \"C:\\\\Users\\\\20110079\\\\stock\\\\web\\\\test-out.txt\" | Select-Object -First 10)",
+      "PowerShell($p = Start-Process -FilePath \"C:\\\\Users\\\\20110079\\\\.local\\\\bin\\\\claude.exe\" -ArgumentList \"--print\",\"--output-format\",\"stream-json\",\"--verbose\",\"--dangerously-skip-permissions\",\"안녕\" -WorkingDirectory \"C:\\\\Users\\\\20110079\\\\stock\" -Wait -NoNewWindow -PassThru -RedirectStandardOutput \"C:\\\\Users\\\\20110079\\\\stock\\\\web\\\\test-out.txt\" -RedirectStandardError \"C:\\\\Users\\\\20110079\\\\stock\\\\web\\\\test-err.txt\" -RedirectStandardInput \"NUL\"; Write-Host \"Exit: $\\($p.ExitCode\\)\"; Write-Host \"=== STDERR ===\"; Get-Content \"C:\\\\Users\\\\20110079\\\\stock\\\\web\\\\test-err.txt\" | Select-Object -First 10; Write-Host \"=== STDOUT \\(first 5 lines\\) ===\"; Get-Content \"C:\\\\Users\\\\20110079\\\\stock\\\\web\\\\test-out.txt\" | Select-Object -First 5)",
+      "PowerShell(Get-Process *)",
+      "PowerShell(Get-ChildItem \"C:\\\\Users\\\\20110079\\\\stock\" -Recurse -File | Where-Object { $_.LastWriteTime -gt \\(Get-Date\\).AddHours\\(-1\\) } | Select-Object FullName, LastWriteTime | Sort-Object LastWriteTime -Descending | Select-Object -First 20)",
+      "mcp__chrome-devtools__navigate_page",
+      "Bash(npm run *)",
+      "mcp__chrome-devtools__take_screenshot",
+      "PowerShell(gh auth *)"
+    ]
+  }
+}

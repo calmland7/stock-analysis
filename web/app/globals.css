@@ -1,0 +1,126 @@
+@import "tailwindcss";
+
+* { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+
+:root {
+  --bg:        #000000;
+  --bg2:       #0a0a0f;
+  --surface1:  #1c1c1e;
+  --surface2:  #2c2c2e;
+  --surface3:  #3a3a3c;
+  --sep:       rgba(84,84,88,0.65);
+  --txt1:      #ffffff;
+  --txt2:      rgba(235,235,245,0.6);
+  --txt3:      rgba(235,235,245,0.3);
+  --blue:      #0a84ff;
+  --green:     #30d158;
+  --orange:    #ff9f0a;
+  --red:       #ff453a;
+  --yellow:    #ffd60a;
+  --purple:    #bf5af2;
+  --safe-top: env(safe-area-inset-top, 0px);
+  --safe-bot: env(safe-area-inset-bottom, 0px);
+}
+
+html, body { height: 100%; }
+
+body {
+  background: var(--bg);
+  color: var(--txt1);
+  font-family: -apple-system, 'SF Pro Display', BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* iOS scrollbar */
+::-webkit-scrollbar { width: 0; }
+
+/* App shell — iPhone width centered, dark outside */
+.app-shell {
+  max-width: 430px;
+  min-height: 100dvh;
+  margin: 0 auto;
+  background: var(--bg);
+  position: relative;
+  box-shadow: 0 0 80px rgba(0,0,0,0.8);
+}
+
+/* Glass nav bar */
+.ios-navbar {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(0,0,0,0.72);
+  backdrop-filter: saturate(180%) blur(20px);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  border-bottom: 0.5px solid var(--sep);
+  padding: calc(var(--safe-top) + 12px) 20px 12px;
+}
+
+/* Card */
+.ios-card {
+  background: var(--surface1);
+  border-radius: 20px;
+  overflow: hidden;
+  transition: transform 0.15s ease, opacity 0.15s ease;
+}
+.ios-card:active { transform: scale(0.97); opacity: 0.85; }
+
+/* Pill badge */
+.ios-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 12px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: -0.2px;
+}
+
+/* Stat chip */
+.stat-chip {
+  flex: 1;
+  background: var(--surface1);
+  border-radius: 16px;
+  padding: 14px 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+/* Separator */
+.ios-sep {
+  height: 0.5px;
+  background: var(--sep);
+  margin: 0 16px;
+}
+
+/* Markdown */
+.report-md { font-size: 15px; line-height: 1.65; color: rgba(235,235,245,0.85); }
+.report-md h1 { font-size: 20px; font-weight: 700; margin: 24px 0 10px; color: #fff; }
+.report-md h2 { font-size: 17px; font-weight: 600; margin: 20px 0 8px; color: var(--blue); }
+.report-md h3 { font-size: 15px; font-weight: 600; margin: 16px 0 6px; color: rgba(235,235,245,0.9); }
+.report-md p  { margin: 6px 0; }
+.report-md strong { color: #fff; font-weight: 600; }
+.report-md hr { border: none; border-top: 0.5px solid var(--sep); margin: 20px 0; }
+.report-md ul, .report-md ol { padding-left: 22px; margin: 6px 0; }
+.report-md li { margin: 4px 0; }
+.report-md blockquote { border-left: 3px solid var(--blue); padding-left: 14px; color: var(--txt2); margin: 10px 0; font-style: italic; }
+
+.report-md .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 12px 0; border-radius: 12px; }
+.report-md table { width: 100%; border-collapse: collapse; font-size: 13px; }
+.report-md thead tr { background: var(--surface2); }
+.report-md th { padding: 10px 12px; text-align: left; font-weight: 600; color: var(--txt2); font-size: 12px; text-transform: uppercase; letter-spacing: 0.4px; }
+.report-md td { padding: 10px 12px; border-top: 0.5px solid var(--sep); }
+.report-md tr:nth-child(even) td { background: rgba(255,255,255,0.03); }
+
+/* Gradient orb background */
+.orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(60px);
+  pointer-events: none;
+  opacity: 0.15;
+  z-index: 0;
+}

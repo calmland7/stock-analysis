@@ -1,0 +1,49 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - generic [ref=e4]:
+      - generic [ref=e5]:
+        - paragraph [ref=e6]: 멀티에이전트 분석
+        - heading "주식 분석" [level=1] [ref=e7]
+      - generic [ref=e8]: 📊
+    - generic [ref=e9]:
+      - generic [ref=e10]:
+        - generic [ref=e11]:
+          - generic [ref=e12]: "1"
+          - generic [ref=e13]: 총 종목
+        - generic [ref=e14]:
+          - generic [ref=e15]: "0"
+          - generic [ref=e16]: 적극매수
+        - generic [ref=e17]:
+          - generic [ref=e18]: "1"
+          - generic [ref=e19]: 분할매수
+        - generic [ref=e20]:
+          - generic [ref=e21]: "0"
+          - generic [ref=e22]: 관망/매도
+      - generic [ref=e23]:
+        - generic [ref=e24]: 리포트
+        - generic [ref=e25]: 1건
+      - link "SCZ 2026-05-27 분할매수 Santacruz Silver Mining Ltd 재무 B 뉴스 긍정 📈 업종 중립 ⚖️" [ref=e27] [cursor=pointer]:
+        - /url: /reports/20260527_Santacruz_Silver
+        - generic [ref=e28]:
+          - generic [ref=e29]:
+            - generic [ref=e30]:
+              - generic [ref=e31]: SCZ
+              - generic [ref=e32]: 2026-05-27
+            - generic [ref=e33]: 분할매수
+          - paragraph [ref=e35]: Santacruz Silver Mining Ltd
+          - generic [ref=e37]:
+            - generic [ref=e38]:
+              - paragraph [ref=e39]: 재무
+              - paragraph [ref=e40]: B
+            - generic [ref=e41]:
+              - paragraph [ref=e42]: 뉴스
+              - paragraph [ref=e43]: 긍정 📈
+            - generic [ref=e44]:
+              - paragraph [ref=e45]: 업종
+              - paragraph [ref=e46]: 중립 ⚖️
+            - img [ref=e48]
+      - paragraph [ref=e50]:
+        - text: 본 리포트는 투자 참고용이며, 최종 투자 결정과
+        - text: 책임은 투자자 본인에게 있습니다.
+  - button "Open Next.js Dev Tools" [ref=e56] [cursor=pointer]:
+    - img [ref=e57]
