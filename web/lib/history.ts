@@ -1,29 +1,24 @@
-import fs from 'fs'
-import path from 'path'
+import { supabase } from './supabase'
 
-const HISTORY_FILE = path.join(process.cwd(), '..', 'data', 'user-history.json')
+export async function getUserSlugs(email: string): Promise<Set<string>> {
+  const { data, error } = await supabase
+    .from('user_history')
+    .select('slug')
+    .eq('user_email', email)
 
-type UserHistory = Record<string, string[]>
-
-function read(): UserHistory {
-  try {
-    if (!fs.existsSync(HISTORY_FILE)) return {}
-    return JSON.parse(fs.readFileSync(HISTORY_FILE, 'utf-8'))
-  } catch {
-    return {}
+  if (error) {
+    console.error('[history] getUserSlugs:', error.message)
+    return new Set()
   }
+  return new Set(data.map((r: { slug: string }) => r.slug))
 }
 
-export function getUserSlugs(email: string): Set<string> {
-  return new Set(read()[email] ?? [])
-}
+export async function addSlugToHistory(email: string, slug: string): Promise<void> {
+  const { error } = await supabase
+    .from('user_history')
+    .upsert({ user_email: email, slug }, { onConflict: 'user_email,slug' })
 
-export function addSlugToHistory(email: string, slug: string): void {
-  const h = read()
-  const slugs = h[email] ?? []
-  if (!slugs.includes(slug)) {
-    h[email] = [slug, ...slugs]
-    fs.mkdirSync(path.dirname(HISTORY_FILE), { recursive: true })
-    fs.writeFileSync(HISTORY_FILE, JSON.stringify(h, null, 2), 'utf-8')
+  if (error) {
+    console.error('[history] addSlugToHistory:', error.message)
   }
 }

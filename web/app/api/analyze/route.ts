@@ -107,7 +107,7 @@ export async function POST(req: Request) {
 
       proc.stderr.on('data', () => {})
 
-      proc.on('close', () => {
+      proc.on('close', async () => {
         // 1) Check if orchestrator wrote the file itself
         const after   = fs.readdirSync(REPORTS_DIR).filter(f => f.endsWith('.md'))
         const newFile = after.find(f => !before.has(f))
@@ -118,7 +118,7 @@ export async function POST(req: Request) {
             const labels = { financial: '재무 분석 완료', news: '뉴스 분석 완료', sector: '업종 리서치 완료' }
             send({ type: 'agent', agent, status: 'done', label: labels[agent] })
           }
-          if (userEmail) addSlugToHistory(userEmail, slug)
+          if (userEmail) await addSlugToHistory(userEmail, slug)
           send({ type: 'done', slug })
           ctrl.close()
           return
@@ -134,7 +134,7 @@ export async function POST(req: Request) {
             const labels = { financial: '재무 분석 완료', news: '뉴스 분석 완료', sector: '업종 리서치 완료' }
             send({ type: 'agent', agent, status: 'done', label: labels[agent] })
           }
-          if (userEmail) addSlugToHistory(userEmail, slug)
+          if (userEmail) await addSlugToHistory(userEmail, slug)
           send({ type: 'done', slug })
           ctrl.close()
           return

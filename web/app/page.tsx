@@ -10,7 +10,7 @@ export default async function Home() {
   const userEmail = session?.user?.email ?? null
 
   const allReports = getAllReports()
-  const userSlugs = userEmail ? getUserSlugs(userEmail) : new Set<string>()
+  const userSlugs = userEmail ? await getUserSlugs(userEmail) : new Set<string>()
   const reports = userEmail
     ? allReports.filter(r => userSlugs.has(r.slug))
     : []
