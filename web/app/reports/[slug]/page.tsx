@@ -3,8 +3,10 @@ import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import MarkdownRenderer from '@/components/MarkdownRenderer'
 
+export const dynamic = 'force-dynamic'
+
 export async function generateStaticParams() {
-  return getAllReports().map(r => ({ slug: r.slug }))
+  return []
 }
 
 const verdictConfig: Record<string, { color: string; bg: string; glow: string }> = {
@@ -17,7 +19,7 @@ const verdictConfig: Record<string, { color: string; bg: string; glow: string }>
 
 export default async function ReportPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params
-  const report = getReport(slug)
+  const report = await getReport(slug)
   if (!report) notFound()
 
   const cfg = verdictConfig[report.verdictLabel] ?? verdictConfig['관망']

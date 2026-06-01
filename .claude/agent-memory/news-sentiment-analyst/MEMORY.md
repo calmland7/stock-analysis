@@ -6,3 +6,4 @@
 - [삼성전자(005930) 이슈 히스토리](stock_samsung_electronics.md) — 2026.05 HBM4E·파운드리 수주 호재 vs 성과급-주주환원 갈등, 긍정 우세
 - [반도체/메모리 업종 감성 패턴](sector_semiconductor_memory.md) — HBM·파운드리 수주·슈퍼사이클 호재, 주주환원·노사 악재
 - [제주반도체(080220) 이슈 히스토리](stock_jeju_semiconductor.md) — 코스닥 팹리스, 1Q26 실적 폭발·온디바이스AI 수혜 vs 급등에 따른 매매거래정지 예고, 긍정 우세
+- [LG전자(066570) 이슈 히스토리](stock_lg_electronics.md) — 2026.05 젠슨황 깐부회동·피지컬AI/로봇 테마 상한가 급등 vs 가전 관세·중국 추격, 긍정 우세

@@ -24,7 +24,25 @@
       "mcp__chrome-devtools__navigate_page",
       "Bash(npm run *)",
       "mcp__chrome-devtools__take_screenshot",
-      "PowerShell(gh auth *)"
+      "PowerShell(gh auth *)",
+      "mcp__supabase__list_tables",
+      "mcp__supabase__get_project_url",
+      "mcp__supabase__apply_migration",
+      "mcp__chrome-devtools__take_snapshot",
+      "mcp__chrome-devtools__click",
+      "mcp__chrome-devtools__type_text",
+      "mcp__chrome-devtools__list_network_requests",
+      "mcp__chrome-devtools__get_network_request",
+      "mcp__chrome-devtools__evaluate_script",
+      "Bash(Get-Content \"C:\\\\Users\\\\20110079\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\C--Users-20110079-stock\\\\40d1b95e-6de4-4af5-8a6e-9501095d9bdb\\\\tasks\\\\bff8tgvnd.output\")",
+      "Bash(Select-Object -Last 20)",
+      "Bash(curl -s \"https://ac.finance.naver.com/ac?q=%EC%82%BC%EC%84%B1%EC%A0%84%EC%9E%90&q_enc=UTF-8&st=111&r_format=json&r_enc=UTF-8&r_unicode=0&t_koreng=1&r_lt=1000&r_tab=0\" -H \"User-Agent: Mozilla/5.0\" -H \"Referer: https://finance.naver.com/\")",
+      "Bash(curl -v \"https://ac.finance.naver.com/ac?q=%EC%82%BC%EC%84%B1%EC%A0%84%EC%9E%90&q_enc=UTF-8&st=111&r_format=json&r_enc=UTF-8&r_unicode=0&t_koreng=1&r_lt=1000&r_tab=0\")",
+      "Bash(vercel *)",
+      "PowerShell(npx vercel --version 2>&1)",
+      "PowerShell(Rename-Item *)",
+      "mcp__playwright__browser_wait_for",
+      "mcp__playwright__browser_evaluate"
     ]
   }
 }

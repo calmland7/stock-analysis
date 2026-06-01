@@ -1,3 +1,4 @@
 - [은 광산 업종 구조](sector_silver_mining.md) — 글로벌 은 광산 주요 경쟁사, 수급 구조, 핵심 규제 이슈
 - [반도체 업종 구조](sector_semiconductor.md) — 메모리/파운드리 경쟁사, AI發 메모리 슈퍼사이클, HBM 수급, 對中 수출통제
+- [가전/전자 업종 구조](sector_home_appliance.md) — Whirlpool/중국 경쟁사, AI 데이터센터 냉각(칠러) 모멘텀, 트럼프 관세/환급
 - [분석 종목 이력](analyzed_tickers.md) — 리서치 수행한 종목 및 업종 분류 결과

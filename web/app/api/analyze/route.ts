@@ -1,8 +1,15 @@
 import { spawn } from 'child_process'
 import path from 'path'
 import fs from 'fs'
-import { auth } from '@/auth'
-import { addSlugToHistory } from '@/lib/history'
+import { saveReport } from '@/lib/reports'
+import { createClient } from '@supabase/supabase-js'
+
+function getSupabase() {
+  return createClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
+  )
+}
 
 const CLAUDE_BIN  = 'C:\\Users\\20110079\\.local\\bin\\claude.exe'
 const STOCK_DIR   = path.resolve(process.cwd(), '..')
@@ -20,10 +27,23 @@ export async function POST(req: Request) {
     return new Response(JSON.stringify({ error: 'stock is required' }), { status: 400 })
   }
 
-  const session = await auth()
-  const userEmail = session?.user?.email ?? null
+  // On Vercel: create a job in Supabase and return job ID (worker processes it locally)
+  if (process.env.VERCEL) {
+    const sb = getSupabase()
+    const { data: job, error } = await sb
+      .from('analysis_jobs')
+      .insert({ stock: stock.trim() })
+      .select('id')
+      .single()
+    if (error || !job) {
+      return new Response(JSON.stringify({ error: '잡 생성 실패: ' + (error?.message ?? 'unknown') }), { status: 500 })
+    }
+    return new Response(JSON.stringify({ mode: 'queued', jobId: job.id }), {
+      headers: { 'Content-Type': 'application/json' },
+    })
+  }
 
-  const enc = new TextEncoder()
+const enc = new TextEncoder()
 
   const stream = new ReadableStream({
     start(ctrl) {
@@ -93,11 +113,17 @@ export async function POST(req: Request) {
             }
           }
 
-          // ── Detect synthesis from assistant text ──────────────────────────
-          if (ev.type === 'assistant' && !synthesisSent) {
+          // ── Stream assistant text to client ──────────────────────────────
+          if (ev.type === 'assistant') {
             const texts = (ev.message as { content?: { type: string; text: string }[] })
               ?.content?.filter(b => b.type === 'text').map(b => b.text).join('') ?? ''
-            if (/최종.*판단|종합.*리포트|전략가|strategist/i.test(texts)) {
+            const trimmed = texts.trim()
+            if (trimmed.length > 10) {
+              // Send a short meaningful snippet (first non-empty line, max 120 chars)
+              const snippet = trimmed.split('\n').find(l => l.trim().length > 5)?.trim().slice(0, 120) ?? ''
+              if (snippet) send({ type: 'text', text: snippet })
+            }
+            if (!synthesisSent && /최종.*판단|종합.*리포트|전략가|strategist/i.test(trimmed)) {
               synthesisSent = true
               send({ type: 'progress', stage: 'synthesis', message: '최종 투자 판단 종합 중...' })
             }
@@ -107,18 +133,18 @@ export async function POST(req: Request) {
 
       proc.stderr.on('data', () => {})
 
-      proc.on('close', async () => {
+      proc.on('close', () => {
+        const doneLabels = { financial: '재무 분석 완료', news: '뉴스 분석 완료', sector: '업종 리서치 완료' }
+
         // 1) Check if orchestrator wrote the file itself
         const after   = fs.readdirSync(REPORTS_DIR).filter(f => f.endsWith('.md'))
         const newFile = after.find(f => !before.has(f))
 
         if (newFile) {
-          const slug = newFile.replace('.md', '')
-          for (const [, agent] of idToAgent) {
-            const labels = { financial: '재무 분석 완료', news: '뉴스 분석 완료', sector: '업종 리서치 완료' }
-            send({ type: 'agent', agent, status: 'done', label: labels[agent] })
-          }
-          if (userEmail) await addSlugToHistory(userEmail, slug)
+          const slug    = newFile.replace('.md', '')
+          const content = fs.readFileSync(path.join(REPORTS_DIR, newFile), 'utf-8')
+          for (const [, agent] of idToAgent) send({ type: 'agent', agent, status: 'done', label: doneLabels[agent] })
+          saveReport(slug, content).catch(() => {})
           send({ type: 'done', slug })
           ctrl.close()
           return
@@ -129,12 +155,8 @@ export async function POST(req: Request) {
           const slug     = makeSlug(stock)
           const filepath = path.join(REPORTS_DIR, `${slug}.md`)
           fs.writeFileSync(filepath, finalResult, 'utf-8')
-
-          for (const [, agent] of idToAgent) {
-            const labels = { financial: '재무 분석 완료', news: '뉴스 분석 완료', sector: '업종 리서치 완료' }
-            send({ type: 'agent', agent, status: 'done', label: labels[agent] })
-          }
-          if (userEmail) await addSlugToHistory(userEmail, slug)
+          for (const [, agent] of idToAgent) send({ type: 'agent', agent, status: 'done', label: doneLabels[agent] })
+          saveReport(slug, finalResult).catch(() => {})
           send({ type: 'done', slug })
           ctrl.close()
           return
