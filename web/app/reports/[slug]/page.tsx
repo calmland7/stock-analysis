@@ -2,6 +2,7 @@ import { getReport, getAllReports } from '@/lib/reports'
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import MarkdownRenderer from '@/components/MarkdownRenderer'
+import StockChart from '@/components/StockChart'
 
 export const dynamic = 'force-dynamic'
 
@@ -23,6 +24,16 @@ export default async function ReportPage({ params }: { params: Promise<{ slug: s
   if (!report) notFound()
 
   const cfg = verdictConfig[report.verdictLabel] ?? verdictConfig['관망']
+
+  // Extract ticker from report or slug (handles numeric Korean codes like 001340)
+  const ticker = report.ticker || (() => {
+    const parts = slug.split('_')
+    for (let i = parts.length - 1; i >= 0; i--) {
+      if (/^\d{5,6}$/.test(parts[i])) return parts[i]   // Korean code
+      if (/^[A-Z]{2,6}$/.test(parts[i])) return parts[i] // US/intl ticker
+    }
+    return ''
+  })()
 
   return (
     <>
@@ -99,6 +110,17 @@ export default async function ReportPage({ params }: { params: Promise<{ slug: s
           </div>
         </div>
       </div>
+
+      {/* Chart */}
+      {ticker && (
+        <div style={{ padding: '0 16px 4px' }}>
+          <StockChart
+            ticker={ticker}
+            analysisDate={report.date}
+            verdictColor={cfg.color}
+          />
+        </div>
+      )}
 
       {/* Report content */}
       <div style={{ padding: '8px 16px 60px' }}>
