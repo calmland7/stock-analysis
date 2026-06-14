@@ -42,6 +42,15 @@ export default async function Home() {
           <StatChip label="관망/매도" value={counts.watch} color="rgba(235,235,245,0.4)" />
         </div>
 
+        {/* 적중률 트래커 */}
+        <a href="/record.html" className="ios-card" style={{
+          display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+          padding: '14px 16px', textDecoration: 'none', color: 'inherit',
+        }}>
+          <span style={{ fontSize: 15, fontWeight: 600 }}>📊 적중률 보기</span>
+          <span style={{ fontSize: 18, color: 'var(--txt3)' }}>›</span>
+        </a>
+
         {/* Section header */}
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', padding: '4px 4px 0' }}>
           <span style={{ fontSize: 20, fontWeight: 700, letterSpacing: -0.4 }}>리포트</span>
