@@ -1,12 +1,14 @@
 import { createClient } from '@supabase/supabase-js'
 
-const supabase = createClient(
-  process.env.SUPABASE_URL!,
-  process.env.SUPABASE_SERVICE_KEY!
-)
+export const dynamic = 'force-dynamic'
 
 export async function GET() {
   try {
+    const supabase = createClient(
+      process.env.SUPABASE_URL!,
+      process.env.SUPABASE_SERVICE_KEY!
+    )
+
     const { data, error } = await supabase
       .from('prediction_results')
       .select('*')
