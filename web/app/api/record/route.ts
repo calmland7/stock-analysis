@@ -14,7 +14,12 @@ export async function GET() {
       .select('*')
       .order('판정일', { ascending: false })
 
-    if (error) throw error
+    if (error) {
+      return Response.json(
+        { error: error.message, details: error.details, hint: error.hint, code: error.code },
+        { status: 500 }
+      )
+    }
 
     const records = data ?? []
     const done = records.filter((d) => d.실제가 != null)
@@ -35,7 +40,8 @@ export async function GET() {
       { headers: { 'Cache-Control': 's-maxage=60, stale-while-revalidate' } }
     )
   } catch (e) {
-    const message = e instanceof Error ? e.message : String(e)
+    const message =
+      e instanceof Error ? e.message : typeof e === 'string' ? e : JSON.stringify(e)
     return Response.json({ error: message }, { status: 500 })
   }
 }
