@@ -3,11 +3,11 @@ export async function GET(req: Request) {
   const q = searchParams.get('q')?.trim()
   if (!q || q.length < 1) return Response.json([])
 
-  const isKorean = /[가-힣]/.test(q)
-
   try {
+    // Always query Naver (it returns Korean stocks for Latin queries too, e.g. "LG"),
+    // and filter to genuine KOSPI/KOSDAQ listings so Yahoo owns foreign tickers.
     const [naverResults, yahooResults] = await Promise.all([
-      isKorean ? searchNaver(q) : Promise.resolve<StockResult[]>([]),
+      searchNaver(q),
       searchYahoo(q),
     ])
 
@@ -38,14 +38,16 @@ async function searchNaver(q: string): Promise<StockResult[]> {
     // { query, items: [{ code, name, typeCode:'KOSPI'|'KOSDAQ', ... }] }
     const items: NaverAcItem[] = data?.items ?? []
     return items
-      .filter(it => it.category === 'stock' || !it.category)
+      // Keep only Korean exchange listings — Naver also returns NASDAQ/TOKYO/HONG_KONG
+      // hits (e.g. 애플/AAPL) that must not get a .KS/.KQ suffix; Yahoo handles those.
+      .filter(it => (it.typeCode === 'KOSPI' || it.typeCode === 'KOSDAQ') && (it.category === 'stock' || !it.category))
       .slice(0, 8)
       .map(it => {
         const isKq = it.typeCode === 'KOSDAQ'
         return {
           symbol:   `${it.code}${isKq ? '.KQ' : '.KS'}`,
           name:     it.name,
-          exchange: it.typeCode ?? (isKq ? 'KOSDAQ' : 'KOSPI'),
+          exchange: isKq ? 'KOSDAQ' : 'KOSPI',
           region:   'KR' as const,
         }
       })
