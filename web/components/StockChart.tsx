@@ -111,8 +111,8 @@ export default function StockChart({ ticker, analysisDate, verdictColor }: Props
             contentStyle={{ background: '#1c1c1e', border: '0.5px solid rgba(84,84,88,0.6)', borderRadius: 10, fontSize: 12 }}
             labelStyle={{ color: 'rgba(235,235,245,0.5)', marginBottom: 4 }}
             itemStyle={{ color: '#fff' }}
-            formatter={(v: number) => [formatPrice(v, isKRW ? 'KRW' : 'USD'), '종가']}
-            labelFormatter={(l: string) => l}
+            formatter={(v) => [formatPrice(Number(v), isKRW ? 'KRW' : 'USD'), '종가']}
+            labelFormatter={(l) => l}
           />
           {/* Analysis date marker */}
           <ReferenceLine
