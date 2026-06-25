@@ -42,7 +42,38 @@
       "PowerShell(npx vercel --version 2>&1)",
       "PowerShell(Rename-Item *)",
       "mcp__playwright__browser_wait_for",
-      "mcp__playwright__browser_evaluate"
+      "mcp__playwright__browser_evaluate",
+      "mcp__supabase__execute_sql",
+      "Bash(gh repo *)",
+      "Bash(node scripts/seed-reports.mjs)",
+      "Bash(cp /tmp/cleanup-reports.mjs ./scripts/_cleanup-tmp.mjs)",
+      "Bash(node scripts/_cleanup-tmp.mjs)",
+      "Bash(awk '{print $5, $8}')",
+      "Bash(ls -la .env*)",
+      "Bash(grep -ri \"service_role\\\\|SERVICE_KEY\\\\|SUPABASE_SERVICE\" .env*)",
+      "Bash(node -e ' *)",
+      "Bash(git fetch *)",
+      "Bash(git rev-list *)",
+      "Bash(git merge *)",
+      "Bash(curl *)",
+      "PowerShell(cd C:\\\\Users\\\\20110079\\\\stock\\\\web; npx tsc --noEmit 2>&1 | Select-Object -First 20; \"EXIT=$LASTEXITCODE\")",
+      "Bash(powershell *)",
+      "PowerShell(node \"C:\\\\Users\\\\20110079\\\\stock\\\\web\\\\scripts\\\\_check_jobs.mjs\")",
+      "PowerShell(node \"C:\\\\Users\\\\20110079\\\\stock\\\\web\\\\scripts\\\\_reset_job.mjs\")",
+      "Bash(git -C C:\\\\Users\\\\20110079\\\\stock status --short)",
+      "Bash(git -C C:\\\\Users\\\\20110079\\\\stock branch --show-current)",
+      "PowerShell(git status --short; \"---BRANCH---\"; git branch --show-current)",
+      "PowerShell(Get-ChildItem web\\\\scripts | Select-Object Name; \"---\"; Test-Path web\\\\package.json)",
+      "PowerShell(Get-CimInstance *)",
+      "PowerShell(Test-NetConnection *)",
+      "PowerShell(try { $r = Invoke-WebRequest -Uri \"https://thbhrtnamqyuuelkoswi.supabase.co/rest/v1/\" -Headers @{ apikey = \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRoYmhydG5hbXF5dXVlbGtvc3dpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODAxODMxMjUsImV4cCI6MjA5NTc1OTEyNX0._Cy5rEURrGaX-hSAYDPRFItaVPdLUPA5yvMRWoWG5Oo\" } -TimeoutSec 15; \"HTTP \" + $r.StatusCode } catch { \"REQUEST FAILED: \" + $_.Exception.Message })",
+      "PowerShell(try { $r = Invoke-WebRequest http://localhost:3000 -TimeoutSec 20 -UseBasicParsing; \"HOME HTTP \" + $r.StatusCode } catch { \"HOME FAIL: \" + $_.Exception.Message })",
+      "mcp__playwright__browser_press_key",
+      "PowerShell(git rev-list *)",
+      "PowerShell(git add *)"
     ]
-  }
+  },
+  "disabledMcpjsonServers": [
+    "supabase"
+  ]
 }

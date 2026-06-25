@@ -1,3 +1,4 @@
 - [은·광산주 분석 & Santacruz Silver(SCZ)](sector_silver_mining.md) — 광산주 순이익 왜곡 주의, SCZ 3년 재무 트렌드/BS 수치
 - [삼성전자(005930)](stock_samsung_electronics.md) — 2025 매출 333.6조 역대최대, 영업익 43.6조, 재무등급 A, 메모리 슈퍼사이클
 - [LG전자(066570)](stock_lg_electronics.md) — 2025 매출 89.2조 역대최대, 영업익 급감(-27.5%), ROE 4.1% 취약, 재무등급 B
+- [LS에코에너지(229640)](stock_ls_eco_energy.md) — 베트남/북미 전력케이블 성장주, 펀더멘털 우상향 재무등급 A, 단 PER 51배/PBR 10배 고평가

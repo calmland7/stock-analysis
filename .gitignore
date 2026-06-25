@@ -27,3 +27,7 @@ Thumbs.db
 
 # Word docs (binary)
 reports/*.docx
+
+# Separate git repositories that live inside this working dir (not part of this project)
+financial-services/
+stock-analysis-check/

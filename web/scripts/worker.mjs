@@ -5,7 +5,7 @@
  * Usage: npm run worker
  */
 import { createClient } from '@supabase/supabase-js'
-import { spawn } from 'child_process'
+import { spawn, execSync } from 'child_process'
 import { mkdirSync, readdirSync, readFileSync, writeFileSync, existsSync } from 'fs'
 import { join, dirname } from 'path'
 import { fileURLToPath } from 'url'
@@ -13,7 +13,50 @@ import { fileURLToPath } from 'url'
 const __dirname = dirname(fileURLToPath(import.meta.url))
 const STOCK_DIR   = join(__dirname, '..', '..')
 const REPORTS_DIR = join(STOCK_DIR, 'reports')
-const CLAUDE_BIN  = 'C:\\Users\\20110079\\.local\\bin\\claude.exe'
+
+/**
+ * Resolve the real claude executable. The npm shims (claude.cmd/.ps1) can't be
+ * spawned without shell:true, so we need the actual binary. Resolution order:
+ *   1) CLAUDE_BIN env override
+ *   2) <npm global root>/@anthropic-ai/claude-code/bin/claude.exe
+ *   3) known install locations
+ *   4) derive the bin dir from `where claude` (the shim sits next to node_modules)
+ */
+function resolveClaudeBin() {
+  const binName = process.platform === 'win32' ? 'claude.exe' : 'claude'
+  const candidates = []
+
+  if (process.env.CLAUDE_BIN) candidates.push(process.env.CLAUDE_BIN)
+
+  try {
+    const npmRoot = execSync('npm root -g', { encoding: 'utf-8' }).trim()
+    if (npmRoot) candidates.push(join(npmRoot, '@anthropic-ai', 'claude-code', 'bin', binName))
+  } catch { /* npm not on PATH */ }
+
+  if (process.env.APPDATA) {
+    candidates.push(join(process.env.APPDATA, 'npm', 'node_modules', '@anthropic-ai', 'claude-code', 'bin', binName))
+  }
+  if (process.env.USERPROFILE) {
+    candidates.push(join(process.env.USERPROFILE, '.local', 'bin', binName))
+  }
+
+  try {
+    const cmd = process.platform === 'win32' ? 'where claude' : 'command -v claude'
+    const shimDir = dirname(execSync(cmd, { encoding: 'utf-8' }).split(/\r?\n/)[0].trim())
+    if (shimDir) candidates.push(join(shimDir, 'node_modules', '@anthropic-ai', 'claude-code', 'bin', binName))
+  } catch { /* claude not on PATH */ }
+
+  const found = candidates.find(p => p && existsSync(p))
+  if (!found) {
+    throw new Error(
+      `claude 실행 파일을 찾을 수 없습니다. 시도한 경로:\n  ${candidates.join('\n  ')}\n` +
+      `해결: CLAUDE_BIN 환경 변수에 claude.exe 전체 경로를 지정하세요.`,
+    )
+  }
+  return found
+}
+
+const CLAUDE_BIN = resolveClaudeBin()
 
 const SUPABASE_URL = 'https://thbhrtnamqyuuelkoswi.supabase.co'
 const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRoYmhydG5hbXF5dXVlbGtvc3dpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODAxODMxMjUsImV4cCI6MjA5NTc1OTEyNX0._Cy5rEURrGaX-hSAYDPRFItaVPdLUPA5yvMRWoWG5Oo'
@@ -217,6 +260,7 @@ async function tick() {
 
 console.log('🚀 Worker started. Listening for analysis jobs...')
 console.log('   Supabase:', SUPABASE_URL)
+console.log('   Claude:  ', CLAUDE_BIN)
 console.log('   Press Ctrl+C to stop.\n')
 
 // Poll every 2 seconds

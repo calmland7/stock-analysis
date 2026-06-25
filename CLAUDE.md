@@ -37,6 +37,12 @@
 cd C:\Users\20110079\stock\web && node scripts/seed-reports.mjs
 ```
 
+### 5단계 — 빈 리포트·중복 종목 정리 (필수)
+세션 한도 초과·빈 메시지 등으로 인해 실제 분석 내용이 없는 **빈 리포트**(예: "You've hit your session limit", "메시지가 비어 있습니다" 같은 placeholder 텍스트만 담긴 파일)나, 같은 종목을 다른 날짜로 재분석해 예전 리포트가 고아로 남는 **중복 종목 리포트**가 생기면 항상 정리합니다.
+1. `reports/` 폴더에서 비정상적으로 작은 파일(수십~백 바이트)이나 placeholder 문구만 있는 `.md`를 찾아 로컬에서 삭제
+2. Supabase `reports` 테이블에서도 동일 slug 행을 삭제 — anon 키는 RLS로 인해 delete가 무시되므로(0 rows affected), Supabase 대시보드 SQL Editor(`postgres` role, RLS 우회)에서 `delete from reports where slug in (...)`를 직접 실행해야 함 (Playwright MCP로 `https://supabase.com/dashboard/project/thbhrtnamqyuuelkoswi/sql/new` 접속 → 쿼리 입력 → Run → 확인 다이얼로그 승인)
+3. 삭제 후 로컬 파일 목록과 Supabase `reports` slug 목록이 1:1로 일치하는지 확인
+
 ---
 
 ## 오케스트레이터 지침
@@ -49,6 +55,7 @@ cd C:\Users\20110079\stock\web && node scripts/seed-reports.mjs
 4. **CLAUDE.md 업데이트**: 최종 리포트 완성 후 아래 히스토리 섹션에 날짜·종목명·판정 결과를 한 줄로 추가하고, 전체 리포트는 `reports/YYYYMMDD_종목명.md`로 저장합니다.
 5. **Vercel 동기화 필수**: 리포트 파일 저장 후 반드시 `cd C:\Users\20110079\stock\web && node scripts/seed-reports.mjs`를 실행하여 Supabase에 업로드합니다. 이 단계 없이는 Vercel에 리포트가 나타나지 않습니다.
 6. **언어**: 모든 에이전트 결과와 사용자 응답은 한국어로 출력합니다.
+7. **빈 리포트·중복 종목 자동 정리**: 매 분석 사이클 종료 시(또는 정리 요청 시) `reports/` 폴더와 Supabase `reports` 테이블을 점검하여 placeholder뿐인 빈 리포트와, 동일 종목의 오래된 중복 리포트(로컬 파일 없이 Supabase에만 남은 고아 행 포함)를 항상 삭제합니다. Supabase 삭제는 anon 키로는 RLS에 막히므로 SQL Editor(postgres role)에서 직접 `delete from reports where slug in (...)`를 실행합니다.
 
 ---
 
@@ -58,7 +65,9 @@ cd C:\Users\20110079\stock\web && node scripts/seed-reports.mjs
 
 | 날짜 | 종목명 | 재무등급 | 뉴스심리 | 업종전망 | 최종판정 | 리포트 |
 |------|--------|----------|----------|----------|----------|--------|
-| 2026-05-31 | PKC 피케이씨 (001340) | C (보통) | 긍정 📈 | 중립 ⚖️ | 🟠 분할 매수 | [리포트](reports/20260531_PKC_001340.md) |
+| 2026-06-17 | PKC 피케이씨 (001340) [3차] | C (보통) | 긍정 📈 (호재 67%) | 긍정 ✅ (근거 교체: 美반덤핑→中공급규율) | 🟠 분할 매수 (유지, 확신 횡보) | [리포트](reports/20260617_PKC_001340.md) |
+| 2026-06-08 | RISE 200TR ETF (361580) | — (ETF, 보수 0.012%·추적오차 0.29%) | 중립 ➡️ (거품론 vs 정상화론 공존) | 중립 ⚖️ (코스피 사상최고가·외국인 매도 지속) | 🟠 분할 매수 | [리포트](reports/20260608_RISE_200TR_361580.md) |
+| 2026-05-31 | LG전자 (066570) | B (양호) | 긍정 📈 (호재 73%) | 긍정 ✅ | 🟠 분할 매수 | [리포트](reports/20260531_LG전자_066570.md) |
 | 2026-05-30 | 제주반도체 (080220) | A (우수) | 중립 ➡️ | 긍정 ✅ | 🟠 분할 매수 | [리포트](reports/20260530_제주반도체.md) |
 | 2026-05-29 | 삼성전자 (005930) | A (우수) | 긍정 📈 | 긍정 ✅ | 🟠 분할 매수 | [리포트](reports/20260529_Samsung_Electronics.md) |
 | 2026-05-27 | Santacruz Silver Mining (SCZ) | B (양호) | 긍정 📈 | 중립 ⚖️ | 🟠 분할 매수 | [리포트](reports/20260527_Santacruz_Silver.md) |
